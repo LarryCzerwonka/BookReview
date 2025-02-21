@@ -1,0 +1,347 @@
+/* General body and html styles */
+body,
+html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    position: relative;
+}
+
+body {
+    background: white;
+    position: relative;
+}
+
+@keyframes fadeOutBg {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0.14;
+    }
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('happinessuUniversity-1enhanced.png') no-repeat top center;
+    background-size: cover;
+    opacity: 1;
+    animation: fadeOutBg 3s forwards ease-out;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Header with fixed height */
+.header {
+    background-color: #0c43b3;
+    color: white;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    border-bottom: 4px solid #a42b0b;
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+    height: 24px;
+}
+
+.header.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.info {
+  font-size: .75em;
+}
+/* Main container */
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    opacity: 0;
+    transition: opacity 1s ease-out;
+}
+
+.container.visible {
+    opacity: 1;
+}
+
+/* Carousel container */
+.carousel {
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    width: calc(100% - 40px);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.carousel.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Update thumbnails container */
+.thumbnails {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-start;
+    align-items: stretch;
+    transition: transform 0.5s ease-in-out;
+    margin-bottom: 20px;
+    width: max-content;
+}
+
+/* Update thumbnail cards */
+.thumbnail-card {
+    flex: 0 0 240px;
+    width: 240px;
+    min-width: 240px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    opacity:0.75;
+}
+
+
+/* Update only the button-related CSS */
+.carousel-buttons {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    pointer-events: none;
+    padding: 0;
+    z-index: 10;
+}
+
+.carousel-buttons button {
+    pointer-events: auto;
+    background-color: rgba(12, 67, 179, 0.85);
+    color: white;
+    border: 2px solid white;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    height: 44px;
+    width: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px 5px 35px 5px;
+    position: static;
+    transform: none;
+}
+
+.carousel-buttons button:hover {
+    background-color: rgba(164, 43, 11, 0.85);
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.thumbnail-card:hover {
+    /*transform: scale(1.1);*/
+    opacity:1;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.kindness {
+    background-color: #fdf6ec;
+}
+
+.patience {
+    background-color: #EBFCF0;
+}
+
+.gratitude {
+    background-color: #F3EBFC;
+}
+
+.connections {
+    background-color: #FCE6E3;
+}
+
+.self-kindness {
+    background-color: #EBEEFC;
+}
+
+/* Thumbnail images */
+.thumbnail-card img {
+    width: 100%;
+    height: auto;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    margin: 0;
+}
+
+.thumbnail-card .details {
+    padding: 15px;
+    font-size: 14px;
+}
+
+.thumbnail-card .details .title {
+    font-weight: bold;
+    margin-top: -5px;
+    margin-bottom: 6px;
+    line-height: 1.4em;
+    height: 2.8em;
+    overflow: hidden;
+}
+
+/* Stars and checks */
+.stars {
+    color: #a42b0b;
+    font-size: 18px;
+}
+
+.check {
+    color: green;
+}
+
+.logo {
+    height: 30px;
+    margin-right: 10px;
+}
+
+/* Story and comments alignment */
+.story-container {
+  margin-left:20px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.story {
+    flex: 1;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.story.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.comments {
+    flex: 1;
+    background: #eaf7e9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.comments.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+@media (max-width: 768px) {
+    .story-container {
+        flex-direction: column;
+    }
+}
+
+.comments {
+    flex: 1;
+    background: #eaf7e9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.comments.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Comment form styles */
+.comment-form {
+    margin-top: -5px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.comment-input {
+    width: 95%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    resize: vertical;
+    min-height: 100px;
+    transition: border-color 0.3s ease;
+}
+
+.comment-input:focus {
+    outline: none;
+    border-color: #0c43b3;
+}
+
+.submit-button {
+    width: 100%;
+    align-self: flex-end;
+    background-color: #0c43b3;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.submit-button:hover {
+    background-color: #a42b0b;
+    transform: translateY(-2px);
+}
+
+.hidden {
+    display: none;
+}
